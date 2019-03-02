@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="new.css">
+    <title>Post new Tent</title>
+  </head>
+  <body>
+    <h1 class="newTitle">Post your tent:</h1>
+
+    <form action="/newPerson" method="POST">
+        Country: <select name="person[country]" required>
+          <option value="United States">United States</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+        Address: <input name="person[address]" type="text" placeholder="Address" required>
+        City: <input name="person[city]" type="text" placeholder="City" required>
+        State: <input name="person[state]" type="text" placeholder="State" required>
+        Postal Code: <input name="person[postalCode]" type="text" placeholder="Postal Code" required>
+        Bedroom Available: <select name="person[bedroomAva]" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4+">4+</option>
+        </select>
+        Bathroom Available: <select name="person[bathroomAva]" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4+">4+</option>
+        </select>
+        Phone Number: <input name="person[phoneNum]" type="text" placeholder="Phone Number" required>
+        Email Address: <input name="person[emailAddr]" type="text" placeholder="Email Address" required>
+        Start Date: <input name="person[startDate]" type="text" placeholder="Start Date" required>
+        End Date: <input name="person[endDate]" type="text" placeholder="End Date" required>
+        Price: <input name="person[price]" type="number" placeholder="Price" required>
+        Other Change: <input name="person[otherCharge]" type="text" placeholder="Other Charge" required>
+        Furnished: <input type="checkbox" name="person[furnish]" value="Furnished"><br>
+        Washing Machine: <input type="checkbox" name="person[washMachine]" value="Washing Machine/Dryer"><br>
+        Gym:<input type="checkbox" name="person[gym]" value="Gym"><br>
+        Swimming Pool:<input type="checkbox" name="person[swimmingPool]" value="Swimming Pool"><br>
+        Parking Lot:<input type="checkbox" name="person[parkingLot]" value="Parking Lot"><br>
+        Pet:<input type="checkbox" name="person[pet]" value="Pet"><br>
+        Smoke:<input type="checkbox" name="person[smoke]" value="Smoking"><br>
+        Party:<input type="checkbox" name="person[party]" value="Party"><br>
+        Other Info: <input name="person[otherInfo]" type="text" placeholder="Other Info">
+        Image: <input name="person[img]" type="text" placeholder="Image URL">
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+
+    <div class="container">
+
+      <a href="/"><button class='btn btn-darksa'>Go Back</button></a>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>

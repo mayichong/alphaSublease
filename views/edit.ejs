@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/index.css">
+    <title>edit</title>
+  </head>
+  <body>
+    <h6 class="exp">(Edit Page)</h6>
+    <h1 class='title'>Edit <%= hello.name %></h1>
+    <form action="/detail/<%= hello._id%>?_method=PUT" method="POST">
+      Country: <select name="person[country]" value="<%= hello.country %>" required>
+        <option value="United States">United States</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
+      Address: <input name="person[address]" type="text" value="<%= hello.address %>" required>
+      City: <input name="person[city]" type="text" value="<%= hello.city %>" required>
+      State: <input name="person[state]" type="text" value="<%= hello.state %>" required>
+      Postal Code: <input name="person[postalCode]" type="number" value="<%= hello.postalCode %>" required>
+      Bedroom Available: <select name="person[bedroomAva]" type="text" value="<%= hello.bedroomAva %>" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4+">4+</option>
+      </select>
+      Bathroom Available: <select name="person[bathroomAva]" type="text" value="<%= hello.bathroomAva %>" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4+">4+</option>
+      </select>
+      Phone Number: <input name="person[phoneNum]" type="text" value="<%= hello.phoneNum %>" required>
+      Email Address: <input name="person[emailAddr]" type="text" value="<%= hello.emailAddr %>" required>
+      Start Date: <input name="person[startDate]" type="text" value="<%= hello.startDate %>" required>
+      End Date: <input name="person[endDate]" type="text" value="<%= hello.endDate %>" required>
+      Price: <input name="person[price]" type="number" value="<%= hello.price %>" required>
+      Other Change: <input name="person[otherCharge]" type="text" value="<%= hello.otherCharge %>" required>
+      Furnished: <input type="checkbox" name="person[furnish]" value= "<%= hello.furnish %>" <% if ( hello.furnish == "Furnished") { %>checked<% } %>><br>
+      Washing Machine: <input type="checkbox" name="person[washMachine]" value= "<%= hello.washMachine %>" <% if ( hello.washMachine == "Washing Machine/Dryer") { %>checked<% } %>><br>
+      Gym:<input type="checkbox" name="person[gym]" value="<%= hello.gym %>" <% if ( hello.gym == "Gym") { %>checked<% } %>><br>
+      Swimming Pool:<input type="checkbox" name="person[swimmingPool]" value="<%=hello.swimmingPool %>" <% if ( hello.swimmingPool == "Swimming Pool") { %>checked<% } %>><br>
+      Parking Lot:<input type="checkbox" name="person[parkingLot]" value="<%=hello.parkingLot %>" <% if ( hello.parkingLot == "Parking Lot") { %>checked<% } %>><br>
+      Pet:<input type="checkbox" name="person[pet]" value="<%=hello.pet %>" <% if ( hello.pet == "Pet") { %>checked<% } %>><br>
+      Smoke:<input type="checkbox" name="person[smoke]" value="<%=hello.smoke %>" <% if ( hello.smoke == "Smoking") { %>checked<% } %>><br>
+      Party:<input type="checkbox" name="person[party]" value="<%=hello.party %>" <% if ( hello.party == "Party") { %>checked<% } %>><br>
+      Other Info: <input name="person[otherInfo]" type="text" value="person[otherInfo]">
+      Image: <input name="person[img]" type="text" value="<%= hello.img %>">
+      <input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>

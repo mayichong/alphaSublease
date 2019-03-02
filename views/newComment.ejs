@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang='en'>
+    
+<head>
+    <meta charset='UTF-8'>
+    <link rel="stylesheet" href="/new.css">
+    <title>
+        Add new Comments
+    </title>
+</head>
+    
+<body>
+    <h1 class="newTitle">Add new Comments </h1>
+
+    <form action="/detail/<%= person._id %>/comments" method="POST">
+        Comment: <input name="comment[text]" type="text" placeholder="Comment..." required>
+        <button type="submit">Submit</button>
+    </form>
+
+
+</body>
+</html>
