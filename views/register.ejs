@@ -7,61 +7,89 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="signUp.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbarPadding" style="background-color: #e3f2fd;">
+        <a class="navbar-brand a">Tent</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link link" href="/">Explore</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/postApartment" class="nav-link link" href="/new" routerLinkActive="active">Post Tent </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="#">About us</a>
+            </li>
+          
+          </ul>
 
-    <title>Sign up</title>
+          <ul class="navbar-nav">
+            
+              <% if (!currentUser){ %>
+                <li class="nav-item active se">
+                  <a class="nav-link link" href="/login">Login</a>
+                
+              <% }else{ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">My Tent</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">圈　</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="logout">Logout</a>
+                </li>
+              <% } %>
+                
+                
+              </ul>
+
+
+        </div>
+        </nav>
+
+    <title>Login to Tent</title>
   </head>
   <body>
+    
+    <% if (error && error.length > 0){ %>
+  <div class="alart alert-danger" role="alert" style="text-align: center;color:red;">
+    <%= error %>
+  </div>
+<% } %>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="/">Explore</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  
-      
-                </div>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                      <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    
-                  </ul>
-      
-              </nav>
-            
-              <% if (error && error.length > 0){ %>
-                <div class="alart alert-danger" role="alert">
-                  <%= error %>
-                </div>
-            <% } %>
-            
-            <% if (success && success.length > 0){ %>
-              <div class="alart alert-success" role="alert">
-                <%= success %>
-              </div>
-          <% } %>
-          
+<% if (success && success.length > 0){ %>
+<div class="alart alert-success" role="alert" style="text-align: center">
+  <%= success %>
+</div>
+<% } %>
 
-    <h1>Register here!</h1>
-
+    <i class="fas fa-user fa-3x loginIcon"></i>
     
     <form action="/register" method="POST">
-        <input type="text" name="username" placeholder="username">
-        <input type="password" name="password" placeholder="password">
-        <input type="text" name="Fname" placeholder="first name">
-        <input type="text" name="Lname" placeholder="last name">
-        <input type="text" name="gender" placeholder="gender">
-        <input type="text" name="phoneNo" placeholder="phone number">
-        <input type="text" name="age" placeholder="age">
-        <input type="text" name="emailAddress" placeholder="Email Address">
-    
-        <button class="btn btn-primary" type="submit">Sign up</button>
+      <i class="far fa-user-circle fa-lg userIcon"></i>
+        <input type="text" name="username" placeholder="username" class="username form-control mr-sm-2" style="width:203px">
+        <i class="fas fa-unlock-alt passIcon"></i>
+        <input type="password" name="password" placeholder="password" class="password form-control mr-sm-2" style="width:203px">
+        <i class="fas fa-undo reenterIcon"></i>
+        <input type="password" name="repassword" placeholder="re-enter passord" class="repassword form-control mr-sm-2" style="width:203px">
+        <i class="fas fa-envelope emailIcon"></i>
+        <input type="text" name="email" placeholder="email Address" class="email form-control mr-sm-2" style="width:203px">
+        <i class="fas fa-phone phoneIcon"></i>
+        <input type="text" name="phone" placeholder="Phone number" class="phone form-control mr-sm-2" style="width:203px">
+        
+      
+        <button class="btn btn-primary" type="submit" style="width:203px;">Sign up <i class="fas fa-paper-plane" style="margin-left:10px;"></i></button>
         </form>
 
-    <p>Have an account? <a href="login">Click here</a></p>
-
+    <p>Already have an account? <a href="login">Click here</a></p>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -69,3 +97,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   </body>
 </html>
+
+

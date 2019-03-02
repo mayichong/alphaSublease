@@ -20,8 +20,6 @@
 }
 
 
-
-
 .passIcon{
     position: absolute;
     left: 40.5%;
@@ -96,3 +94,59 @@ p{
     left: 0;
     background: rgb(126, 106, 117);
   }
+
+  .repassword{
+    position: absolute;
+    left: 50.5%;
+    top: 58%;
+    transform: translate(-50%,-50%);
+}
+
+.email{
+    position: absolute;
+    left: 50.5%;
+    top: 67%;
+    transform: translate(-50%,-50%);
+}
+
+.phone{
+    position: absolute;
+    left: 50.5%;
+    top: 76%;
+    transform: translate(-50%,-50%);
+}
+
+button{
+    position: absolute;
+    left: 50.5%;
+    top: 84%;
+    transform: translate(-50%,-50%);
+}
+
+p{
+    position: absolute;
+    left: 52%;
+    top: 88%;
+    transform: translate(-50%,-50%);
+}
+
+.emailIcon{
+    position: absolute;
+    left: 40.5%;
+    top: 67%;
+    transform: translate(-50%,-50%);
+}
+
+.phoneIcon{
+    position: absolute;
+    left: 40.5%;
+    top: 76%;
+    transform: translate(-50%,-50%);
+}
+
+.reenterIcon{
+    position: absolute;
+    left: 40.5%;
+    top: 58%;
+    transform: translate(-50%,-50%);
+}

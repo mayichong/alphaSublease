@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light e" style="background-color: #e3f2fd;">
-        <h1 class="navbar-brand a">Tent</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbarPadding" style="background-color: #e3f2fd;">
+        <a class="navbar-brand a">Tent</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -59,15 +59,15 @@
   </head>
   <body>
     
-
     <% if (error && error.length > 0){ %>
-        <div class="alart alert-danger" role="alert">
+        <div class="alart alert-danger" role="alert" style="text-align: center;color:red;">
           <%= error %>
         </div>
-    <% } %>
-    
+    <% } %>  
+  
+
     <% if (success && success.length > 0){ %>
-      <div class="alart alert-success" role="alert">
+      <div class="alart alert-success" role="alert" style="text-align: center;">
         <%= success %>
       </div>
   <% } %>
