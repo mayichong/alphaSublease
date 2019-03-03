@@ -45,6 +45,6 @@ app.use(itemRoutes);
 app.use(commentRoutes);
 app.use(authRoutes);
 
-app.listen(8080, process.env.IP,function(){
+app.listen(process.env.PORT, process.env.IP,function(){
     console.log("listening...");
 });
