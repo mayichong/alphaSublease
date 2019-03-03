@@ -95,7 +95,7 @@ router.delete("/detail/:id",middleware.checkPersonOwnership,function(req,res){
         if (err){
             console.log(err);
         }else
-        res.redirect("/");
+        res.redirect("/myTent");
     });
 });
 
