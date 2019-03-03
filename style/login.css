@@ -96,3 +96,22 @@ p{
     left: 0;
     background: rgb(126, 106, 117);
   }
+
+  .TentFont{
+    font-family:'Dancing Script', cursive;
+    
+    font-style:italic;
+    font-size:210%;
+    font-weight:1.5em;
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-right:1%;
+    border-right:1.5px solid #D5D7D8  ;
+   }
+   
+   
+   
+   .title{
+    font-family: 'Miriam Libre', sans-serif;
+   
+   }
