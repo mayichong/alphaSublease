@@ -8,131 +8,211 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/detail.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Hello, world!</title>
   </head>
   <body>
 
+      <nav class="navbar navbar-expand-lg navbar-light bg-light navbarPadding" style="background-color: #e3f2fd;">
+          <a class="navbar-brand">Tent</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active se">
+                <a class="nav-link link" href="/">Explore </a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/postApartment" class="nav-link link" href="/new" routerLinkActive="active">Post Tent </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link link" href="#">About us</a>
+              </li>
+            
+            </ul>
+    
+            <ul class="navbar-nav">
+              
+                <% if (!currentUser){ %>
+                  <li class="nav-item">
+                    <a class="nav-link link" href="/login">Login/Register</a>
+                  
+                <% }else{ %>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">My Tent</a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">圈　</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link" href="logout">Logout</a>
+                  </li>
+                <% } %>
+                </ul>
+          </div>
+          </nav>
+
       <% if (error && error.length > 0){ %>
-        <div class="alart alert-danger" role="alert">
+        <div class="alart alert-danger" role="alert" style="text-align: center;color:red">
           <%= error %>
         </div>
     <% } %>
     
     <% if (success && success.length > 0){ %>
-      <div class="alart alert-success" role="alert">
+      <div class="alart alert-success" role="alert" style="text-align: center;color:blue">
         <%= success %>
       </div>
   <% } %>
-
-  
+  <br>
+  <a href="/"><button class='btn btn-warning' style="margin-left:30px;">Go Back</button></a>
       <div class="container">
-            <h1 class="title">Tent detail:</h1>
-            <p> name: <%= hello.name%> </p>
-            <p> age: <%= hello.age %> </p>
-            <p> gender: <%= hello.gender %></p>
-            <p> phone number: <%= hello.phoneNum %></p>
-            <p> email address: <%= hello.emailAddr %></p>
-            <p> country: <%= hello.country %></p>
-            <p> address: <%= hello.address %> </p>
-            <p> city: <%= hello.city %> </p>
-            <p> state: <%= hello.state %> </p>
-            <p> postal code: <%= hello.postalCode %> </p>
-            <p> bedrooms available: <%= hello.bedroomAva %></p>
-            <p> bathrooms available: <%= hello.bathroomAva %></p>
+        <br><br>
+        <div class="row">
+          <div class="col-10">
             
-            <p> startDate: <%= hello.bedroomAva %></p>
-            <p> endDate: <%= hello.bathroomAva %></p>
-            <p> price: <%= hello.price %> </p>
+              <h1 class="title">Tent detail:</h1>
+          </div>
+          <div class="col">
+                  <% if (currentUser && hello.author.id.equals(currentUser._id)){ %>
+                  <form action="/detail/<%= hello._id%>?_method=DELETE" method="POST">
+                    <button class='btn btn-primary' style="float:right">Delete</button>
+                  </form>
+                  <a href="/detail/<%= hello._id%>/edit"><button class='btn btn-danger'>Edit</button></a>
+                  <% } %>       
+          </div>
+
+        </div>
+          <br>
+                <div class="row">
+                  <div class="col-sm">
+                      
+                      <img src="<%= hello.img %>" width="500px" height="400px">
+                  </div>
+                  <div class="col-sm">
+                      <h1>$ <%= hello.price %> / Month</h1>
+                      <hr>
+                      <p>Country: <%= hello.country %></p>
+                      <p>Address: <%= hello.address %>,<br><%= hello.city %>, <%= hello.state %>, <%= hello.postalCode %></p>
+                      <hr>
+                      <p>Landlord name: <%= hello.name%> </p>
+                      <p>Phone number: <%= hello.phoneNum %></p>
+                      <p>Email Address: <%= hello.emailAddr %></p>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm">
+                            Bedroom available: <%= hello.bedroomAva %>
+                        </div>
+                        <div class="col-sm">
+                            Bathroom available: <%= hello.bathroomAva %>
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
+                <p style="font-size:10px;"> Created by <%= hello.author.username%></p>
+                <p>Leasing period: <%= hello.startDate %> to <%= hello.endDate %></p>
+                <br>
+                <p>Other Charges: <%= hello.otherCharge %></p>
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="col-sm">
+                      
+                        <% if ( hello.furnish == "Furnished") { %>
+                          <p> <%= hello.furnish %></p>
+      
+                      <% } else { %>
+                          <p> No Furnished </p>
+                      <% } %>
+                   
+                      <% if ( hello.washMachine == "Washing Machine/Dryer") { %>
+                        <p> <%= hello.washMachine %></p>
+      
+                      <% } else { %>
+                        <p> No Washing Machine/Dryer </p>
+                      <% } %>
+                      
+                      <% if ( hello.gym == "Gym") { %>
+                        <p> <%= hello.gym %></p>
+      
+                      <% } else { %>
+                        <p> No Gym </p>
+                      <% } %>
+                      
+                      <% if ( hello.swimmingPool == "Swimming Pool") { %>
+                        <p> <%= hello.swimmingPool %></p>
+      
+                      <% } else { %>
+                        <p> No Swimming Pool </p>
+                      <% } %>
+                      
+                      <% if ( hello.parkingLot == "Parking Lot") { %>
+                        <p> <%= hello.parkingLot %></p>
+      
+                      <% } else { %>
+                        <p> No Parking Lot </p>
+                      <% } %>
+                    </div>
+                    <div class="col-sm">
+                        <% if ( hello.pet == "Pet") { %>
+                          <p> Allow Pets </p>
+        
+                        <% } else { %>
+                          <p> No Pets Allowed </p>
+                        <% } %>
+        
+                        <% if ( hello.smoke == "Smoking") { %>
+                          <p> Allow Smoking %></p>
+        
+                        <% } else { %>
+                          <p> No Smoking Allowed </p>
+                        <% } %>
+        
+                        <% if ( hello.party == "Party") { %>
+                          <p> Allow Party </p>
+        
+                        <% } else { %>
+                          <p> No Party Allowed </p>
+                        <% } %>
+                    </div>
+
+                </div>
             
-                <% if ( hello.furnish == "Furnished") { %>
-                    <p> <%= hello.furnish %></p>
-
-                <% } else { %>
-                    <p> No Furnished </p>
-                <% } %>
-             
-                <% if ( hello.washMachine == "Washing Machine/Dryer") { %>
-                  <p> <%= hello.washMachine %></p>
-
-                <% } else { %>
-                  <p> No Washing Machine/Dryer </p>
-                <% } %>
                 
-                <% if ( hello.gym == "Gym") { %>
-                  <p> <%= hello.gym %></p>
+                <hr>
+            <p> Other Information: <% if (hello.otherInfo){ %><%=hello.otherInfo%><% }else{ %>None<% } %> </p>
 
-                <% } else { %>
-                  <p> No Gym </p>
-                <% } %>
-                
-                <% if ( hello.swimmingPool == "Swimming Pool") { %>
-                  <p> <%= hello.swimmingPool %></p>
-
-                <% } else { %>
-                  <p> No Swimming Pool </p>
-                <% } %>
-                
-                <% if ( hello.parkingLot == "Parking Lot") { %>
-                  <p> <%= hello.parkingLot %></p>
-
-                <% } else { %>
-                  <p> No Parking Lot </p>
-                <% } %>
-                
-                <% if ( hello.pet == "Pet") { %>
-                  <p> Allow Pets </p>
-
-                <% } else { %>
-                  <p> No Pets Allowed </p>
-                <% } %>
-
-                <% if ( hello.smoke == "Smoking") { %>
-                  <p> Allow Smoking %></p>
-
-                <% } else { %>
-                  <p> No Smoking Allowed </p>
-                <% } %>
-
-                <% if ( hello.party == "Party") { %>
-                  <p> Allow Party </p>
-
-                <% } else { %>
-                  <p> No Party Allowed </p>
-                <% } %>
-
-            <p> other info: <%= hello.otherInfo %> </p>
-
-            <img src="<%= hello.img %>">
-            <p style="font-size:10px;"> Created by <%= hello.author.username%></p>
       </div>
 
       <div class="container">
-        <h1>Comments:</h1><br>
+        <br>
+        
+        <span style="font-size:20px">Comments:</span><a href="/detail/<%= hello._id %>/comments/new" style="float:right"><i class="fas fa-plus-circle fa-2x"></i> </a>
+
+        
         <% hello.comments.forEach(function(comment){ %>
-            <p><b><%= comment.author.username %></b><br><%= comment.text %> </p>
+
+          <div style="margin-top:30px;padding:10px">
+            <p><i class="fas fa-user-astronaut fa-3x" style="color:blue">&nbsp;&nbsp;</i><span style="font-size:15px;font-weight:600"><%= comment.author.username %></span><br><span style="color:#707B7C;margin-left:65px;"><%= comment.text %></span> </p>
 
             <% if (currentUser && comment.author.id.equals(currentUser._id)){ %>
 
-            <a class="btn btn-xs btn-warning" href="/detail/<%=hello._id %>/comments/<%=comment._id%>/edit">Edit</a>
+            <a class="btn btn-xs btn-warning" href="/detail/<%=hello._id %>/comments/<%=comment._id%>/edit" style="float:right">Edit</a>
             <form action="/detail/<%=hello._id%>/comments/<%= comment._id%>?_method=DELETE" method="POST">
-              <button class='btn btn-primary'>Delete</button>
+              <button class='btn btn-primary' style="float:right">Delete</button>
             </form>
             <% }%>
+          </div>
         <% }); %>
 
-        <a href="/detail/<%= hello._id %>/comments/new"><button class='btn btn-dark'>Add new Comment</button> </a>
+      
+        <div style="margin-top:300px"></div>
+        
+        
 
       </div>
 
-      <div class="container">
-        <% if (currentUser && hello.author.id.equals(currentUser._id)){ %>
-        <form action="/detail/<%= hello._id%>?_method=DELETE" method="POST">
-          <button class='btn btn-primary'>Delete</button>
-        </form>
-        <a href="/detail/<%= hello._id%>/edit"><button class='btn btn-danger'>Edit</button></a>
-        <% } %>
-        <a href="/"><button class='btn btn-warning'>Go Back</button></a>
-      </div>
         
 
     <!-- Optional JavaScript -->

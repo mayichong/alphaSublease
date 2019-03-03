@@ -25,3 +25,33 @@ h3{
     margin-bottom:10px;
 }
 
+.navbarPadding{
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+.link{
+    position: relative;
+  }
+  
+  .link:after{
+    content: '';
+    position: absolute;
+    width: 0; height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #fff;
+    transition: width .2s ease;
+    -webkit-transition: width .2s ease;
+  }
+   
+  .link:hover:after{
+    width: 100%;
+    left: 0;
+    background: rgb(126, 106, 117);
+  }
+
+  .se{
+    font-weight:500;
+}

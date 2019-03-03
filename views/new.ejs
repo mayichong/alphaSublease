@@ -25,7 +25,7 @@
               <a class="nav-link link" href="/new">Post Tent </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link link" href="#">About us</a>
+              <a class="nav-link link" href="/about">About us</a>
             </li>
 
           </ul>
@@ -38,13 +38,11 @@
                 
               <% }else{ %>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">My Tent</a>
+                    <a class="nav-link link" href="#">My Tent</a>
                   </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">圈　</a>
-                </li>
+                
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="logout">Logout</a>
+                    <a class="nav-link link" href="logout">Logout</a>
                 </li>
               <% } %>
                 
@@ -154,7 +152,7 @@
                         Price: <input name="person[price]" type="number"  required> $/month
                     </div>
                     <div class="col-sm">
-                        Other Charge: <br><textarea name="person[otherCharge]" type="text" rows="3" cols="50" placeholder="Please specify" required></textarea>
+                        Other Charge: <br><textarea name="person[otherCharge]" type="text" rows="3" cols="50" placeholder="Please specify"></textarea>
                     </div>
                     
                   </div>
@@ -188,61 +186,6 @@
         </div>
       </div>
 
-
-
-
-
-    <!-- <form action="/newPerson" method="POST">
-        Name: <input name="person[name]" type="text" placeholder="Name" required>
-        Age: <input name="person[age]" type="text" placeholder="Age" required>
-        Gender: <input name="person[gender]" type="text" placeholder="Gender" required>
-        Phone Number: <input name="person[phoneNum]" type="text" placeholder="Phone Number" required>
-        Email Address: <input name="person[emailAddr]" type="text" placeholder="Email Address" required>
-        Country: <select name="person[country]" required>
-          <option value="United States">United States</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-        </select>
-        Address: <input name="person[address]" type="text" placeholder="Address" required>
-        City: <input name="person[city]" type="text" placeholder="City" required>
-        State: <input name="person[state]" type="text" placeholder="State" required>
-        Postal Code: <input name="person[postalCode]" type="text" placeholder="Postal Code" required>
-        Bedroom Available: <select name="person[bedroomAva]" required>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4+">4+</option>
-        </select>
-        Bathroom Available: <select name="person[bathroomAva]" required>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4+">4+</option>
-        </select>
-        
-        Start Date: <input name="person[startDate]" type="text" placeholder="Start Date" required>
-        End Date: <input name="person[endDate]" type="text" placeholder="End Date" required>
-        Price: <input name="person[price]" type="number" placeholder="Price" required>
-        Other Change: <input name="person[otherCharge]" type="text" placeholder="Other Charge" required>
-        Furnished: <input type="checkbox" name="person[furnish]" value="Furnished"><br>
-        Washing Machine: <input type="checkbox" name="person[washMachine]" value="Washing Machine/Dryer"><br>
-        Gym:<input type="checkbox" name="person[gym]" value="Gym"><br>
-        Swimming Pool:<input type="checkbox" name="person[swimmingPool]" value="Swimming Pool"><br>
-        Parking Lot:<input type="checkbox" name="person[parkingLot]" value="Parking Lot"><br>
-        Pet:<input type="checkbox" name="person[pet]" value="Pet"><br>
-        Smoke:<input type="checkbox" name="person[smoke]" value="Smoking"><br>
-        Party:<input type="checkbox" name="person[party]" value="Party"><br>
-        Other Info: <input name="person[otherInfo]" type="text" placeholder="Other Info">
-        Image: <input name="person[img]" type="text" placeholder="Image URL">
-        <input class="btn btn-primary" type="submit" value="Submit">
-    </form>
-
-  </div>
-    <div class="container">
-
-      <a href="/"><button class='btn btn-darksa'>Go Back</button></a>
-    </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

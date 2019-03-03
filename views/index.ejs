@@ -32,7 +32,7 @@
                 <a routerLink="/postApartment" class="nav-link link" href="/new" routerLinkActive="active">Post Tent </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link" href="#">About us</a>
+                <a class="nav-link link" href="/about">About us</a>
               </li>
             
             </ul>
@@ -47,18 +47,11 @@
                   <li class="nav-item">
                       <a class="nav-link" href="#">My Tent</a>
                     </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">圈　</a>
-                  </li>
                   <li class="nav-item dropdown">
                       <a class="nav-link" href="logout">Logout</a>
                   </li>
                 <% } %>
-                  
-                  
                 </ul>
-
-
           </div>
           </nav>
 
@@ -95,20 +88,20 @@
           <form action="demo_form.php">
               <i class="fas fa-map-marker-alt fa-lg" ></i>
             <input type="Search" name="Search" placeholder="search key words: ex. Gainesville" size="35" class="search">
-              <button type="button" value="Search" class="button">Search</button>
+              <a href="#ava"><button type="button" value="Search" class="button">Search</button></a>
           
             </form>
           </div>
 
-    <h5 class="title" style="text-align: center;margin-top:50px">Available Tents:</h5>
+    <h5 class="title" style="text-align: center;margin-top:50px" id="ava">Available Tents:</h5>
     <hr>
       
     <div class='container'>
       <div class="row">
-      
+        
         <% for (var i = 0; i < hello.length;i++){ %>
-          <div class="col-sm">
-              <div class="card" style="width: 15rem;">
+          <div class="col-sm" style="margin-top:50px">
+              <div class="card" style="width: 15rem;" >
                   <img class="card-img-top" src="<%= hello[i].img %>" alt="Card image cap" height="200px" width="100px">
                   <div class="card-body">
                     <h5 class="card-title">$<%= hello[i].price %></h5>
@@ -136,6 +129,7 @@
 
     </div>
 
+    <div style="margin-top:100px"></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -7,57 +7,186 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="/index.css">
-    <title>edit</title>
+    <link rel="stylesheet" href="new.css">
+    <title>Post new Tent</title>
   </head>
   <body>
-    <h6 class="exp">(Edit Page)</h6>
-    <h1 class='title'>Edit <%= hello.name %></h1>
-    <form action="/detail/<%= hello._id%>?_method=PUT" method="POST">
-      Name: <input name="person[name]" value="<%= hello.name %>" required>
-      Age: <input name="person[age]" value="<%= hello.age %>" required>
-      Gender: <input name="person[gender]" value="<%= hello.gender %>" required>
-      Phone Number: <input name="person[phoneNum]" type="text" value="<%= hello.phoneNum %>" required>
-      Email Address: <input name="person[emailAddr]" type="text" value="<%= hello.emailAddr %>" required>
-      Country: <select name="person[country]" value="<%= hello.country %>" required>
-        <option value="United States">United States</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
-      </select>
-      Address: <input name="person[address]" type="text" value="<%= hello.address %>" required>
-      City: <input name="person[city]" type="text" value="<%= hello.city %>" required>
-      State: <input name="person[state]" type="text" value="<%= hello.state %>" required>
-      Postal Code: <input name="person[postalCode]" type="number" value="<%= hello.postalCode %>" required>
-      Bedroom Available: <select name="person[bedroomAva]" type="text" value="<%= hello.bedroomAva %>" required>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4+">4+</option>
-      </select>
-      Bathroom Available: <select name="person[bathroomAva]" type="text" value="<%= hello.bathroomAva %>" required>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4+">4+</option>
-      </select>
-      
-      Start Date: <input name="person[startDate]" type="text" value="<%= hello.startDate %>" required>
-      End Date: <input name="person[endDate]" type="text" value="<%= hello.endDate %>" required>
-      Price: <input name="person[price]" type="number" value="<%= hello.price %>" required>
-      Other Change: <input name="person[otherCharge]" type="text" value="<%= hello.otherCharge %>" required>
-      Furnished: <input type="checkbox" name="person[furnish]" value= "<%= hello.furnish %>" <% if ( hello.furnish == "Furnished") { %>checked<% } %>><br>
-      Washing Machine: <input type="checkbox" name="person[washMachine]" value= "<%= hello.washMachine %>" <% if ( hello.washMachine == "Washing Machine/Dryer") { %>checked<% } %>><br>
-      Gym:<input type="checkbox" name="person[gym]" value="<%= hello.gym %>" <% if ( hello.gym == "Gym") { %>checked<% } %>><br>
-      Swimming Pool:<input type="checkbox" name="person[swimmingPool]" value="<%=hello.swimmingPool %>" <% if ( hello.swimmingPool == "Swimming Pool") { %>checked<% } %>><br>
-      Parking Lot:<input type="checkbox" name="person[parkingLot]" value="<%=hello.parkingLot %>" <% if ( hello.parkingLot == "Parking Lot") { %>checked<% } %>><br>
-      Pet:<input type="checkbox" name="person[pet]" value="<%=hello.pet %>" <% if ( hello.pet == "Pet") { %>checked<% } %>><br>
-      Smoke:<input type="checkbox" name="person[smoke]" value="<%=hello.smoke %>" <% if ( hello.smoke == "Smoking") { %>checked<% } %>><br>
-      Party:<input type="checkbox" name="person[party]" value="<%=hello.party %>" <% if ( hello.party == "Party") { %>checked<% } %>><br>
-      Other Info: <input name="person[otherInfo]" type="text" value="person[otherInfo]">
-      Image: <input name="person[img]" type="text" value="<%= hello.img %>">
-      <input class="btn btn-primary" type="submit" value="Submit">
-  </form>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbarPadding" style="background-color: #e3f2fd;">
+        <a class="navbar-brand">Tent</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link link" href="/">Explore </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="/new">Post Tent </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="#">About us</a>
+            </li>
+
+          </ul>
+
+          <ul class="navbar-nav">
+
+              <% if (!currentUser){ %>
+                <li class="nav-item">
+                  <a class="nav-link link" href="/login">Login/Register</a>
+                
+              <% }else{ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">My Tent</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">圈　</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="logout">Logout</a>
+                </li>
+              <% } %>
+                
+                
+              </ul>
+
+
+        </div>
+        </nav>
+
+        <div style="background-color: #E1EBEB">
+            
+        <div class="container" style="background-color:white">
+          <br>
+            <h1 class="newTitle">Post your Tent</h1>
+            <form action="/detail/<%= hello._id%>?_method=PUT" method="POST">
+          <h3>Personal Information</h3>
+          <hr>
+
+          
+              <div class="row">
+                <div class="col-sm">
+                    Name: <input name="person[name]" value="<%= hello.name %>" required>
+                </div>
+                <div class="col-sm">
+                    Age: <input name="person[age]" value="<%= hello.age %>" required>
+                </div>
+                <div class="col-sm">
+                    Gender: <select name="person[gender]" value="<%= hello.gender %>" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Perfer not to say">Perfer not to say</option>
+    
+                      </select>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top:10px;">
+                  <div class="col-sm">
+                      Phone Number: <input name="person[phoneNum]" type="text" value="<%= hello.phoneNum %>" required>
+                  </div>
+                  <div class="col-sm">
+                      Email Address: <input name="person[emailAddr]" type="text" value="<%= hello.emailAddr %>" required>
+                  </div>
+              </div>
+            
+          <h3>Tent Address</h3>
+          <hr>
+          Country: <select name="person[country]" value="<%= hello.country %>" required>
+              <option value="United States">United States</option>
+              <option value="China">China</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Australia">Australia</option>
+            </select>
+            <br>
+            Address: <input name="person[address]" type="text" value="<%= hello.address %>" style="width:455px" required>
+            <br>
+
+          <div class="row">
+                <div class="col-sm">
+                    City: <input name="person[city]" type="text" value="<%= hello.city %>" required>
+                </div>
+                <div class="col-sm">
+                    State: <input name="person[state]" type="text" value="<%= hello.state %>" required>
+                </div>
+                <div class="col-sm">
+                    Zip Code: <input name="person[postalCode]" type="number" value="<%= hello.postalCode %>" required>
+                </div>
+              </div>
+          
+          
+            <h3>Tent Information</h3>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm">
+                    Bedroom Available: <select name="person[bedroomAva]" type="text" value="<%= hello.bedroomAva %>" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4+</option>
+                      </select>
+                </div>
+                <div class="col-sm">
+                    Bathroom Available: <select name="person[bathroomAva]" type="text" value="<%= hello.bathroomAva %>" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4+</option>
+                      </select>
+                </div>
+
+              </div>
+
+              <div class="row">
+                  <div class="col-sm">
+                      Start Date: <input name="person[startDate]" type="date" value="<%= hello.startDate %>" required>
+                  </div>
+                  <div class="col-sm">
+                      End Date: <input name="person[endDate]" type="date" value="<%= hello.endDate %>" required>
+                  </div>
+                  
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                        Price: <input name="person[price]" type="number" value="<%= hello.price %>" required>
+                    </div>
+                    <div class="col-sm">
+                        Other Charge: <br><textarea name="person[otherCharge]" type="text" rows="3" cols="50"><%= hello.otherCharge %></textarea>
+                    </div>
+                    
+                  </div>
+                  
+                <h3>Facilty and Rules</h3>
+                <hr>
+                  <div class="row">
+                      <div class="col-sm">
+                          <input type="checkbox" name="person[furnish]" value= "<%= hello.furnish %>" <% if ( hello.furnish == "Furnished") { %>checked<% } %>>Furnished<br>
+                          <input type="checkbox" name="person[washMachine]" value= "<%= hello.washMachine %>" <% if ( hello.washMachine == "Washing Machine/Dryer") { %>checked<% } %>>Washing Machine<br>
+                          <input type="checkbox" name="person[gym]" value="<%= hello.gym %>" <% if ( hello.gym == "Gym") { %>checked<% } %>>Gym<br>
+                          <input type="checkbox" name="person[swimmingPool]" value="<%=hello.swimmingPool %>" <% if ( hello.swimmingPool == "Swimming Pool") { %>checked<% } %>>Swimming Pool<br>
+                          <input type="checkbox" name="person[parkingLot]" value="<%=hello.parkingLot %>" <% if ( hello.parkingLot == "Parking Lot") { %>checked<% } %>>Parking Lot<br>
+                      </div>
+                      <div class="col-sm">
+                          <input type="checkbox" name="person[pet]" value="<%=hello.pet %>" <% if ( hello.pet == "Pet") { %>checked<% } %>>Pet<br>
+                          <input type="checkbox" name="person[smoke]" value="<%=hello.smoke %>" <% if ( hello.smoke == "Smoking") { %>checked<% } %>>Smoking<br>
+                          <input type="checkbox" name="person[party]" value="<%=hello.party %>" <% if ( hello.party == "Party") { %>checked<% } %>>Party<br>
+                      </div>
+                      
+                    </div>
+                    
+                    
+                    Other Info: <br><textarea name="person[otherInfo]" type="text" rows="4" cols="70"><%= hello.otherInfo%></textarea>
+
+                <h3>Upload Pictures</h3>
+                Image: <input name="person[img]" type="text" style="width:300px" value="<%= hello.img %>">
+                <br><br>
+                <div><input class="btn btn-primary" type="submit" value="Submit"></div>
+                </form>
+        </div>
+      </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -66,3 +195,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+          
+      
+      
+      
+  
