@@ -45,13 +45,13 @@ router.get("/logout",function(req,res){
     res.redirect("/");
 });
 
-router.get("/detail/:id",function(req,res){
+router.get("/detail/:id/logout",function(req,res){
     req.logout();
     req.flash("success","Logged you out!");
     res.redirect("/");
 });
 
-router.get("/detail/:id/edit",function(req,res){
+router.get("/detail/:id/edit/logout",function(req,res){
     req.logout();
     req.flash("success","Logged you out!");
     res.redirect("/");
