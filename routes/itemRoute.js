@@ -10,6 +10,18 @@ router.get("/",function(req,res){
             console.log(err);
         }else{
             res.render("index",{hello:allItem});
+            
+        }
+    });
+});
+
+router.get("/mytent",function(req,res){
+    item.find({},function(err,allItem){
+        if (err){
+            console.log(err);
+        }else{
+            res.render("myTent",{hello:allItem});
+           
         }
     });
 });

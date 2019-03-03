@@ -1,1 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    <title>Tent</title>
+  </head>
+  <body>
+
+
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light navbarPadding" style="background-color: #e3f2fd;">
+          <a class="navbar-brand">Tent</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link link" href="/">Explore </a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/postApartment" class="nav-link link" href="/new" routerLinkActive="active">Post Tent </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link link" href="/about">About us</a>
+              </li>
+            
+            </ul>
+
+            <ul class="navbar-nav">
+              
+                <% if (!currentUser){ %>
+                  <li class="nav-item">
+                    <a class="nav-link link" href="/login">Login/Register</a>
+                  
+                <% }else{ %>
+                  <li class="nav-item se active">
+                      <a class="nav-link link" href="#">My Tent</a>
+                    </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link link" href="logout">Logout</a>
+                  </li>
+                <% } %>
+                </ul>
+          </div>
+          </nav>
+
+
+
+    <h5 class="title" style="text-align: center;margin-top:50px" id="ava">My Tents:</h5>
+    <hr>
+      
+    <div class='container'>
+      <div class="row">
+            
+        <% for (var i = 0; i < hello.length;i++){ %>
+            <% if (hello[i].author.username == currentUser.username){ %>
+          <div class="col-sm" style="margin-top:50px">
+              <div class="card" style="width: 15rem;" >
+                  <img class="card-img-top" src="<%= hello[i].img %>" alt="Card image cap" height="200px" width="100px">
+                  <div class="card-body">
+                    <h5 class="card-title">$<%= hello[i].price %></h5>
+                    <p class="card-text">Address: <%= hello[i].address %></p>
+                    <p class="card-text"> <%= hello[i].bedroomAva%> Bedroom <%= hello[i].bathroomAva%> Bathroom</p>
+                    <a href="/detail/<%= hello[i]._id %>" class="btn btn-primary">Details</a>
+                  </div>
+                </div>
+              </div>
+              
+              <% } %>
+        <% } %>
+        
+
+
+        
+      </div>
+
+    </div>
+
+        
+      
+
+
+        
+      </div>
+
+    </div>
+
+    <div style="margin-top:100px"></div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
