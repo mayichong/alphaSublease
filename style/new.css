@@ -56,3 +56,47 @@ h3{
   .se{
     font-weight:500;
 }
+
+.navbarPadding{
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+.font{
+  font-family:'Work Sans', sans-serif;
+}
+
+.TentFont{
+  font-family:'Dancing Script', cursive;
+  
+  font-style:italic;
+  font-size:210%;
+  font-weight:1.5em;
+  padding-top:0px;
+  padding-bottom:0px;
+  padding-right:1%;
+  border-right:1.5px solid #D5D7D8  ;
+ }
+ 
+ 
+ 
+ .title{
+  font-family: 'Miriam Libre', sans-serif;
+ 
+ }
+ 
+ body{
+  background:whitesmoke;
+ }
+
+ h1{
+    font-family: 'Farsan', cursive;
+   }
+   
+   h3{
+    font-family: 'Farsan', cursive;
+   }
+   
+   select{
+      border-radius: 4px;
+   }

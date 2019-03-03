@@ -12,9 +12,9 @@
 <body>
     <h1 class="newTitle">Add new Comments </h1>
 
-    <form action="/detail/<%= person._id %>/comments" method="POST">
-        Comment: <input name="comment[text]" type="text" placeholder="Comment..." required>
-        <button type="submit">Submit</button>
+    <form action="/detail/<%= person._id %>/comments" method="POST" style="text-align: center">
+       <textarea name="comment[text]" type="text" placeholder="Comment here" rows="20" cols="50" required></textarea><br>
+        <button type="submit">Comment</button>
     </form>
 
 
