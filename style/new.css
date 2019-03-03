@@ -1,5 +1,27 @@
 .newTitle{
     text-align: center;
-    margin-top:50px;
+    
     margin-bottom:50px;
 }
+
+input{
+    border-radius:5px;
+    border:1px solid lightblue;
+    outline: none;
+    margin-bottom:10px;
+    
+}
+
+select{
+    margin-bottom:20px;
+}
+
+h3{
+    
+    margin-top:40px;
+}
+
+.row, input{
+    margin-bottom:10px;
+}
+

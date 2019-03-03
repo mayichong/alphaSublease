@@ -31,7 +31,7 @@
     color:black;
   }
   
-  img{
+  .slider{
     height: 540px;
     width:  100%;
     margin-left: auto; 
@@ -58,13 +58,16 @@
  margin-left:-10px;
  border-bottom-right-radius:20px;
  border-top-right-radius:20px;
+ 
     }
 
     .button:hover{
-    background-color:#fafafa;
+    background-color:white;
     color:#207cca;
     }
-  
+
+    
+    button:focus {outline:0;}
   
   
 .se{

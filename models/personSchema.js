@@ -1,6 +1,9 @@
 var mongoose = require("mongoose");
 
 var itemSchema = new mongoose.Schema({
+    name: String,
+    age: String,
+    gender: String,
     country: String,
     address: String,
     city: String,

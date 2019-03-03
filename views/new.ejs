@@ -11,9 +11,193 @@
     <title>Post new Tent</title>
   </head>
   <body>
-    <h1 class="newTitle">Post your tent:</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbarPadding" style="background-color: #e3f2fd;">
+        <a class="navbar-brand">Tent</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link link" href="/">Explore </a>
+            </li>
+            <li class="nav-item active se">
+              <a class="nav-link link" href="/new">Post Tent </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="#">About us</a>
+            </li>
 
-    <form action="/newPerson" method="POST">
+          </ul>
+
+          <ul class="navbar-nav">
+
+              <% if (!currentUser){ %>
+                <li class="nav-item">
+                  <a class="nav-link link" href="/login">Login/Register</a>
+                
+              <% }else{ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">My Tent</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">圈　</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="logout">Logout</a>
+                </li>
+              <% } %>
+                
+                
+              </ul>
+
+
+        </div>
+        </nav>
+
+        <div style="background-color: #E1EBEB   ">
+            
+        <div class="container" style="background-color:white">
+          <br>
+            <h1 class="newTitle">Post your Tent</h1>
+            <form action="/newPerson" method="POST">
+          <h3>Personal Information</h3>
+          <hr>
+
+          
+              <div class="row">
+                <div class="col-sm">
+                    Name: <input name="person[name]" type="text" required>
+                </div>
+                <div class="col-sm">
+                    Age: <input name="person[age]" type="text" required>
+                </div>
+                <div class="col-sm">
+                    Gender: <select name="person[gender]" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Perfer not to say">Perfer not to say</option>
+    
+                      </select>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top:10px;">
+                  <div class="col-sm">
+                      Phone Number: <input name="person[phoneNum]" type="text" required>
+                  </div>
+                  <div class="col-sm">
+                      Email Address: <input name="person[emailAddr]" type="text" required style="width:200px;">
+                  </div>
+              </div>
+            
+          <h3>Tent Address</h3>
+          <hr>
+          Country: <select name="person[country]" required>
+              <option value="United States">United States</option>
+              <option value="China">China</option>
+              <option value="United Kingdom">Europe</option>
+              <option value="Australia">Australia</option>
+            </select>
+            <br>
+            Address: <input name="person[address]" type="text"  required style="width:455px;">
+            <br>
+
+          <div class="row">
+                <div class="col-sm">
+                    City: <input name="person[city]" type="text"  required>
+                </div>
+                <div class="col-sm">
+                    State: <input name="person[state]" type="text" required>
+                </div>
+                <div class="col-sm">
+                    Zip Code: <input name="person[postalCode]" type="text" required>
+                </div>
+              </div>
+          
+          
+            <h3>Tent Information</h3>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm">
+                    Bedroom Available: <select name="person[bedroomAva]" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4+</option>
+                      </select>
+                </div>
+                <div class="col-sm">
+                    Bathroom Available: <select name="person[bathroomAva]" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4+</option>
+                      </select>
+                </div>
+
+              </div>
+
+              <div class="row">
+                  <div class="col-sm">
+                      Start Date: <input name="person[startDate]" type="date" required>
+                  </div>
+                  <div class="col-sm">
+                      End Date: <input name="person[endDate]" type="date" required>
+                  </div>
+                  
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                        Price: <input name="person[price]" type="number"  required> $/month
+                    </div>
+                    <div class="col-sm">
+                        Other Charge: <br><textarea name="person[otherCharge]" type="text" rows="3" cols="50" placeholder="Please specify" required></textarea>
+                    </div>
+                    
+                  </div>
+                  
+                <h3>Facilty and Rules</h3>
+                <hr>
+                  <div class="row">
+                      <div class="col-sm">
+                        <input type="checkbox" name="person[furnish]" value="Furnished">Furnished<br>
+                        <input type="checkbox" name="person[washMachine]" value="Washing Machine/Dryer">Washing Machine/Dryer<br>
+                        <input type="checkbox" name="person[gym]" value="Gym">Gym<br>
+                        <input type="checkbox" name="person[swimmingPool]" value="Swimming Pool">Swimming Pool<br>
+                        <input type="checkbox" name="person[parkingLot]" value="Parking Lot">Parking Lot<br>
+                      </div>
+                      <div class="col-sm">
+                        <input type="checkbox" name="person[pet]" value="Pet">Allow Pets<br>
+                        <input type="checkbox" name="person[smoke]" value="Smoking">Allow Smoking<br>
+                        <input type="checkbox" name="person[party]" value="Party">Allow Party<br>
+                      </div>
+                      
+                    </div>
+                    
+                    
+                    Other Info: <br><textarea name="person[otherInfo]" type="text" rows="4" cols="70"></textarea>
+
+                <h3>Upload Pictures</h3>
+                Image: <input name="person[img]" type="text" style="width:300px">
+                <br><br>
+                <div><input class="btn btn-primary" type="submit" value="Submit"></div>
+                </form>
+        </div>
+      </div>
+
+
+
+
+
+    <!-- <form action="/newPerson" method="POST">
+        Name: <input name="person[name]" type="text" placeholder="Name" required>
+        Age: <input name="person[age]" type="text" placeholder="Age" required>
+        Gender: <input name="person[gender]" type="text" placeholder="Gender" required>
+        Phone Number: <input name="person[phoneNum]" type="text" placeholder="Phone Number" required>
+        Email Address: <input name="person[emailAddr]" type="text" placeholder="Email Address" required>
         Country: <select name="person[country]" required>
           <option value="United States">United States</option>
           <option value="saab">Saab</option>
@@ -36,8 +220,7 @@
           <option value="3">3</option>
           <option value="4+">4+</option>
         </select>
-        Phone Number: <input name="person[phoneNum]" type="text" placeholder="Phone Number" required>
-        Email Address: <input name="person[emailAddr]" type="text" placeholder="Email Address" required>
+        
         Start Date: <input name="person[startDate]" type="text" placeholder="Start Date" required>
         End Date: <input name="person[endDate]" type="text" placeholder="End Date" required>
         Price: <input name="person[price]" type="number" placeholder="Price" required>
@@ -55,10 +238,11 @@
         <input class="btn btn-primary" type="submit" value="Submit">
     </form>
 
+  </div>
     <div class="container">
 
       <a href="/"><button class='btn btn-darksa'>Go Back</button></a>
-    </div>
+    </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -14,6 +14,11 @@
     <h6 class="exp">(Edit Page)</h6>
     <h1 class='title'>Edit <%= hello.name %></h1>
     <form action="/detail/<%= hello._id%>?_method=PUT" method="POST">
+      Name: <input name="person[name]" value="<%= hello.name %>" required>
+      Age: <input name="person[age]" value="<%= hello.age %>" required>
+      Gender: <input name="person[gender]" value="<%= hello.gender %>" required>
+      Phone Number: <input name="person[phoneNum]" type="text" value="<%= hello.phoneNum %>" required>
+      Email Address: <input name="person[emailAddr]" type="text" value="<%= hello.emailAddr %>" required>
       Country: <select name="person[country]" value="<%= hello.country %>" required>
         <option value="United States">United States</option>
         <option value="saab">Saab</option>
@@ -36,8 +41,7 @@
         <option value="3">3</option>
         <option value="4+">4+</option>
       </select>
-      Phone Number: <input name="person[phoneNum]" type="text" value="<%= hello.phoneNum %>" required>
-      Email Address: <input name="person[emailAddr]" type="text" value="<%= hello.emailAddr %>" required>
+      
       Start Date: <input name="person[startDate]" type="text" value="<%= hello.startDate %>" required>
       End Date: <input name="person[endDate]" type="text" value="<%= hello.endDate %>" required>
       Price: <input name="person[price]" type="number" value="<%= hello.price %>" required>
